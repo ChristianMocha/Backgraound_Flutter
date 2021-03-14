@@ -105,3 +105,45 @@ class _headerTriangularPainter extends CustomPainter {
     return true;
   }
 }
+
+class HeaderPico extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      // color: Color(0xff00C1E3),
+      child: CustomPaint(
+        painter: _headerPicoPainter(),
+      ),
+    );
+  }
+}
+
+class _headerPicoPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final lapiz = new Paint();
+
+    // propiedadess
+    lapiz.color = Color(0xff00C1E3);
+    lapiz.style = PaintingStyle.fill; //.fill
+    lapiz.strokeWidth = 5;
+
+    final path = new Path();
+
+    // Dibujar con el path y el lapiz
+    path.lineTo(0, size.height * .2);
+    path.lineTo(size.width * .5, size.height * .3);
+    path.lineTo(size.width, size.height * .2);
+    path.lineTo(size.width, 0);
+    path.lineTo(0, 0);
+
+    canvas.drawPath(path, lapiz);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
+  }
+}
